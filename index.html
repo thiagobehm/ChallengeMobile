@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My App</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body ng-app="myApp">
+	<div class="container">
+		<header>
+			Bem Vindo ao App!
+		</header>
+		<aside class="hero-area">
+			<img src="images/launch_screen.jpg" alt="Imagem de Londres chuvosa." width="100%">
+		</aside>
+		<main ng-controller="tarefaCtrl">
+			<h2>Escolha a localidade para obter mais informações:</h2>
+			<ul ng-repeat="item in lista">
+				<li>
+					<a href="tela-principal.html?id={{item}}" target='_self'>{{item}}</a>
+				</li>
+			</ul>
+		</main>
+	</div>
+	
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>

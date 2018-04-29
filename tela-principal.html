@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My App</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body ng-app="myApp">
+	<div class="container" ng-controller="tarefaCtrl" ng-init="buscarTarefa()">
+		<!-- Menu superior -->
+		<header>
+			<div class="header-content">
+				<!-- Volta a página/tela anterior -->
+				<a class="pull-left back" href="javascript:window.history.back();"></a>
+				<!-- Mostra nome da cidade buscada -->
+				<span class="location">{{tarefa.cidade}} - {{tarefa.bairro}}</span>
+				<!-- Icone de busca -->
+				<a href="#"><img class="pull-right" src="images/search.png" alt="Ícone de busca"></a>
+			</div>
+		</header>
+		<!-- Imagem Principal -->
+		<aside class="hero-area">
+			<img ng-src="{{tarefa.urlFoto}}" alt="Imagem" width="100%">
+			<img class="circle-favorite pull-right" src="{{tarefa.urlLogo}}" alt="Ícone Favorito">			
+		</aside>
+		<!-- Conteúdo principal da página -->
+		<main>
+			<div class="main-title">
+				<h2 class="pull-left"> {{tarefa.titulo}} </h2>
+			</div>
+			<div class="main-container">
+				<!-- Menu/ícones -->
+				<div class="main-top">
+					<!-- Ligar -->
+					<a ng-href="tel:{{tarefa.telefone}}">
+						<span class="sprite ligar"></span>
+					</a>
+					<!-- Serviço -->
+					<a ng-href="servicos.html" target="_self">
+						<span class="sprite servicos"></span>
+					</a>
+					<!-- Endereço -->
+					<a ng-href="#modalEndereco" target="_self" id="btnModal">
+						<span class="sprite endereco"></span>
+					</a>
+					<!-- Comentários -->
+					<a ng-href="#comentarios" target="_self">
+						<span class="sprite comentarios"></span>
+					</a>
+					<!-- Favoritos -->
+					<a ng-href="#">
+						<span class="sprite favoritos"></span>
+					</a>
+				</div>
+				<hr>
+				<div class="main-content">
+					{{tarefa.texto}}					
+				</div><!-- .main-content -->
+			</div> <!-- .main-container-->
+			<!-- Exibe o mapa com a localização -->
+			<div class="mapa" id="mapa"></div>
+			<!-- Mostra a barra com o endereco -->
+			<div class="barra-endereco">
+				<span class="icon"></span>
+				<div class="content">
+					{{tarefa.endereco}}
+				</div>			
+			</div>
+			<article class="comentarios-container" id="comentarios">
+				<div class="comentario" ng-repeat="comentario in tarefa.comentarios">
+					<div class="profile-picture">
+						<img src="{{comentario.urlFoto}}" alt="Foto Usuário" width="60px" height="60px">
+					</div>
+					<div class="header-comentario">
+						<span class="pull-left">{{comentario.nome}}</span> <br>
+						<span class="pull-left title-uppercase">{{comentario.titulo}}</span>
+						<!-- Nota dado pelo usuario -->
+						<div class="rating pull-right">
+						    <input type="radio" id="star5" name="rating{{$index}}" disabled="disabled" value="5" ng-checked="{{comentario.nota == 5}}" /><label for="star5" title="Excepcional!">5 estrelas</label>
+						    <input type="radio" id="star4" name="rating{{$index}}" disabled="disabled" value="4" ng-checked="{{comentario.nota == 4}}" /><label for="star4" title="Muito Bom!">4 estrelas</label>
+						    <input type="radio" id="star3" name="rating{{$index}}" disabled="disabled" value="3" ng-checked="{{comentario.nota == 3}}" /><label for="star3" title="Bom">3 estrelas</label>
+						    <input type="radio" id="star2" name="rating{{$index}}" disabled="disabled" value="2" ng-checked="{{comentario.nota == 2}}" /><label for="star2" title="Razoável">2 estrelas</label>
+						    <input type="radio" id="star1" name="rating{{$index}}" disabled="disabled" value="1" ng-checked="{{comentario.nota == 1}}" /><label for="star1" title="Precisa Melhorar">1 estrela</label>
+						</div>					
+					</div>
+					<div class="conteudo-comentario">
+						{{comentario.comentario}}
+					</div>
+					<hr>
+				</div>
+			</article>
+			<!-- Modal endereco -->
+			<!-- The Modal -->
+			<div id="modalEndereco" class="modal">
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<span class="fechar-modal">&times;</span>
+					<h2>Endereço:</h2>
+				</div>
+				<!-- Modal content -->
+				<div class="modal-content">					
+					<p>{{tarefa.endereco}}, {{tarefa.bairro}} - {{tarefa.cidade}}</p>
+				</div>
+
+			</div>
+		</main>
+	</div> <!-- .container -->
+
+<!-- Google Maps Script  -->
+<script async defer 
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd3U7HfW7514cZoPXZ1Qywam2sB9Vt8Gc&callback=initMap">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/modal.js"></script>
+</body>
+</html>
+
+
+
+

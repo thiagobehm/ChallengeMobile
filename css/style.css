@@ -1,0 +1,326 @@
+
+/**** Elementos globais ****/
+html {
+	padding: 0;
+	margin: 0;
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	color: #cb8a19;
+	background: #f2f2f2;
+	padding: 0;
+	margin: 0;
+	font-size: 12px;
+	font-size: 1.2rem;
+}
+
+a {
+	text-decoration: none;
+}
+
+hr {
+	border: none;
+    border-bottom: 1px solid #eae9e9;
+    margin: 20px 0;
+}
+
+h2 {
+	font-size: 16px;
+	font-size: 1.6rem;
+	text-align: center;
+}
+
+.container {
+	width: 100%;
+}
+
+header {
+	background: #cb8a19;
+	padding: 5px 0;
+	height: 25px;
+	text-align: center;
+	color:  #fff;
+}
+
+.header-content {
+	width: 100%;
+}
+
+/**--- Tela Abertura --- **/
+.hero-area {
+	display: block;
+	max-height: 300px;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.hero-area img {
+	display: block;
+    max-width: 100%;
+    max-height: 350px;
+    position: inherit;
+}
+
+ul {
+	margin-left: 10%;
+}
+
+ul li {
+	margin: 10px 0;
+}
+
+ul li a {
+	color: #cb8a19;
+	text-decoration: none;
+}
+
+.label {
+	text-align: center;
+    display: block;
+    padding: 20px;
+    border-radius: 0 0px 60px 60px;
+    background: #f3dbae;   
+    font-weight: bold;       
+    margin-top: -20px /* Remove a margin da hero-area */;
+}
+
+/** Helper Classes */
+.title-uppercase {
+	text-transform: uppercase;
+}
+
+.pull-right {
+	float: right !important;
+	margin-right: 10px;
+}
+
+.pull-left {
+	float: left !important;
+	margin-left: 10px;
+}
+
+span.location {
+	display: inline-flex;
+	font-size: 14px;
+	font-size: 1.4rem;
+}
+
+span.location::before {	
+    display: block;
+    content: url('../images/pin.png');	
+    margin-right: 5px;
+}
+
+/*-- Top menu -- */
+a.back {
+	margin-left: 10px;
+	font-size: 18px;
+	font-size: 1.8rem;
+	text-decoration: none;
+	color: #fff;
+	font-weight: bolder;
+}
+
+a.back::before { 
+	content:"\003c"; 
+}
+
+.circle-favorite {
+	padding: 10px;
+	background: #fff;
+	border-radius: 50%;
+	margin-top: -50px;
+	z-index: 5;
+	width: 60px;
+}
+
+/* Main content */
+.main-container, .comentarios-container  {
+	clear: both;
+	padding: 15px 35px;
+	background: #fff;
+}
+
+
+.main-top {
+	text-align: center;
+}
+
+.main-content{
+	text-align: justify;
+	font-size: 14px;
+	font-size: 1.4rem;
+	font-weight: 500;
+	line-height: 2.2rem;
+}
+
+
+/* Sprite icons */
+.sprite {
+	height: 50px;
+	display: inline-block;
+	margin: 5px 10px;
+}
+
+.sprite.ligar{
+	background: url('../images/sprite.png') no-repeat -2px 0;
+	width: 34px;
+}
+
+.sprite.servicos {
+	background: url('../images/sprite.png') no-repeat -40px -2px;
+	width: 45px;
+}
+
+.sprite.endereco {
+	background: url('../images/sprite.png') no-repeat -90px -2px;
+	width: 51px;
+}
+
+.sprite.comentarios {
+	background: url('../images/sprite.png') no-repeat -144px -1px;
+	width: 71px;
+}
+
+.sprite.favoritos {
+	background: url('../images/sprite.png') no-repeat -217px -2px;
+	width: 50px;
+}
+
+/* Mapa */
+.mapa {
+	width: 100%;
+	height: 150px;
+	padding: 0;
+	margin: 0;
+}
+
+/* Barra com endereco(abaixo mapa) */
+.barra-endereco {
+	background: #cb8a19;
+	width: 100%;
+	color: #fff;
+	float: right;
+	padding: 5px;
+	padding-right: 0;
+}
+
+.barra-endereco .content {
+	text-align: right;
+    margin-right: 50px;
+}
+
+.barra-endereco .icon {
+	background: url("../images/sprite.png") no-repeat -96px 3px;
+	height: 30px;
+	width: 19px;
+    padding: 5px 10px;
+	float: right;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 10px;
+    margin-top: -20px;        
+    position: relative;
+}
+
+/* Comentarios */
+.comentarios-container {
+	font-size: 14px;
+	font-size: 1.4rem;
+	line-height: 20px;
+	line-height: 2.2rem;
+}
+
+.profile-picture {
+	width: 20%;
+	text-align: center;
+	display: inline-block
+}
+
+.profile-picture img {
+	border-radius: 50%;
+}
+
+.header-comentario{
+	display: inline-block;
+    width: 80%;
+    float: right;
+}
+
+
+.conteudo-comentario {
+	width: 80%;
+    margin-left: 21%;
+}
+
+/* Notas dos comentários */
+.rating {
+    float:left;
+}
+
+/* desloca as checkboxes da tela usando um top negativo */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+/* formata as labels */
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor: text;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+}
+/* Adiciona a estrela, usando como base as labels */
+.rating:not(:checked) > label::before {
+    content: '★ ';
+}
+/* Preenche todas as estrelhas com base na nota */
+.rating > input:checked ~ label {
+    color: #cb8a19;
+}
+
+
+/* Modal (background) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 10;
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content, .modal-header {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px 20px;
+    border: 1px solid #f3f3f3;
+    width: 80%;
+}
+
+/* Botão de fechar modal */
+.fechar-modal {
+    color: #aaaaaa;
+    float: right;
+    font-size: 3.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
